@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.min.js"></script>
+        <script src="https://unpkg.com/vue@2.2.6"></script>
+        <link rel="stylesheet" href="dist/css/style.css" />
+    </head>
+    <body>
+        <div class="terminal">
+            <div class="text-panel">
+                <div v-for="item in renderCommands" class="text-line" v-bind:class="{ invalid: !item.valid }">{{ item.text }}</div>
+            </div>
+            <command-result v-bind:command="activeCommand" v-bind:params="params"></command-result>
+
+            <input-field v-on:add-command="parseCommand"></input-field>
+        </div>
+        
+        <script src="dist/index.js"></script>
+    </body>
+</html>
